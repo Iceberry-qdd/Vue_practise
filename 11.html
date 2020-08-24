@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Vue基础</title>
+</head>
+
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                <img src="http://www.itheima.com/images/logo.png" alt="">
+            </h2>
+            <img :src="imgArr[index]" alt=""/>
+            <a href="javascript:void(0)" v-show="index!=0" @click="prev" class="left">
+                <img src="./img/left.png" alt="">
+            </a>
+            <a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next" class="right">
+                <img src="./img/right.png" alt=""/>
+            </a>
+        </div>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#mask",
+            data: {
+                imgArr:[
+                    "./img/a.png",
+                    "./img/b.png",
+                    "./img/c.png"
+                ],
+                index:0
+            },
+            methods:{
+                prev:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
